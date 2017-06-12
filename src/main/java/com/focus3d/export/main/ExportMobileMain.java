@@ -19,8 +19,8 @@ import com.focus3d.export.service.MobileExportService;
  */
 public class ExportMobileMain {
 	private static final Logger log = LoggerFactory.getLogger(ExportMobileMain.class);
-	private static final String[] clomus = new String[]{"ĞòºÅ", "±êÌâ", "url", "ÊÖ»ú", "×¥È¡Ê±¼ä"};
-	private static final String sheetName = "ÊÖ»ú";
+	private static final String[] clomus = new String[]{"åºå·", "æ ‡é¢˜", "url", "æ‰‹æœº", "æŠ“å–æ—¶é—´"};
+	private static final String sheetName = "æ‰‹æœº";
 	/**
 	 * @param args
 	 */
@@ -28,12 +28,12 @@ public class ExportMobileMain {
 		BeanFactory beanFactory = new ClassPathXmlApplicationContext("/com/focus3d/spring/datasource.xml");
 		MobileExportService mobileExportService = beanFactory.getBean(MobileExportService.class.getName(), MobileExportService.class);
 		long st = System.currentTimeMillis();
-		List<MobileModel> list = mobileExportService.list(1, 30);
+		List<MobileModel> list = mobileExportService.list(1, 60000);
 		ExportMobile exportMobile = new ExportMobile(sheetName, clomus, "F:\\", list);
 		exportMobile.export();
-		log.info("µ¼³öÍê³É¡£");
+		log.info("å¯¼å‡ºå®Œæˆã€‚");
 		long et = System.currentTimeMillis();
-		log.info("ºÄÊ±£º" + ((et - st) / 1000) + "Ãë");
+		log.info("è€—æ—¶ï¼š" + ((et - st) / 1000) + "ç§’");
 	}
 
 }

@@ -6,7 +6,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.focus3d.export.dao.MobileDao;
-import com.focus3d.export.model.EmailModel;
 import com.focus3d.export.model.MobileModel;
 
 /**

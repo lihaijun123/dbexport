@@ -72,23 +72,23 @@ public abstract class AbstractExport<T> {
 			font.setBoldweight(HSSFFont.BOLDWEIGHT_BOLD); */
 
 			int nColumn = clomunName.length;
-			log.info("Ò»¹²µ¼³öÊı¾İÌõÊı£º" + data.size());
-			log.info("ÏÔÊ¾ÁĞÊı£º" + nColumn);
-			// Ğ´Èë¸÷¸ö×Ö¶ÎµÄÃû³Æ
+			log.info("ä¸€å…±å¯¼å‡ºæ•°æ®æ¡æ•°ï¼š" + data.size());
+			log.info("æ˜¾ç¤ºåˆ—æ•°ï¼š" + nColumn);
+			// å†™å…¥å„ä¸ªå­—æ®µçš„åç§°
 			for (int i = 0; i < nColumn; i++) {
 				cell = row.createCell((short) i);
 				cellStyle = cell.getCellStyle();
 				//cellStyle.setFont(font);
-				cellStyle.setVerticalAlignment(HSSFCellStyle.VERTICAL_CENTER);//´¹Ö±
-				cellStyle.setAlignment(HSSFCellStyle.ALIGN_CENTER);//Ë®Æ½
+				cellStyle.setVerticalAlignment(HSSFCellStyle.VERTICAL_CENTER);//å‚ç›´
+				cellStyle.setAlignment(HSSFCellStyle.ALIGN_CENTER);//æ°´å¹³
 				cell.setCellType(HSSFCell.CELL_TYPE_STRING);
 				cell.setEncoding(HSSFCell.ENCODING_UTF_16);
 				String cn = clomunName[i];
 				cell.setCellValue(cn);
-				log.info("ÁĞÃû³Æ£º" + cn);
+				log.info("åˆ—åç§°ï¼š" + cn);
 			}
 			for(int r = 0; r < data.size(); r ++){
-				// Ğ´Èë¸÷Ìõ¼ÇÂ¼£¬Ã¿Ìõ¼ÇÂ¼¶ÔÓ¦ExcelÖĞµÄÒ»ĞĞ
+				// å†™å…¥å„æ¡è®°å½•ï¼Œæ¯æ¡è®°å½•å¯¹åº”Excelä¸­çš„ä¸€è¡Œ
 				Object object = data.get(r);
 				row = sheet.createRow((short) (r + 1));
 				for (int c = 0; c < clomunName.length; c++) {
@@ -175,8 +175,8 @@ public abstract class AbstractExport<T> {
 		String dateTime = dateFormat.format(new Date());
 		try {
 			File file = new File(outputDir + File.separator + dateTime + ".xls");
-			log.info("µ¼³öÂ·¾¶£º" + file.getPath());
-			log.info("ÎÄ¼ş´óĞ¡£º" + byteArray.length / 1024 + "×Ö½Ú");
+			log.info("å¯¼å‡ºè·¯å¾„ï¼š" + file.getPath());
+			log.info("æ–‡ä»¶å¤§å°ï¼š" + byteArray.length / 1024 + "å­—èŠ‚");
 			FileOutputStream fileOutputStream = new FileOutputStream(file);
 			try {
 				fileOutputStream.write(byteArray);

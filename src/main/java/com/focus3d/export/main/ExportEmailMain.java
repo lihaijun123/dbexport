@@ -19,8 +19,8 @@ import com.focus3d.export.service.EmailExportService;
  */
 public class ExportEmailMain {
 	private static final Logger log = LoggerFactory.getLogger(ExportEmailMain.class);
-	private static final String[] clomus = new String[]{"ĞòºÅ", "±êÌâ", "url", "ÓÊÏä", "×¥È¡Ê±¼ä"};
-	private static final String sheetName = "ÓÊÏä";
+	private static final String[] clomus = new String[]{"åºå·", "æ ‡é¢˜", "url", "é‚®ç®±", "æŠ“å–æ—¶é—´"};
+	private static final String sheetName = "é‚®ç®±";
 	/**
 	 * @param args
 	 */
@@ -28,12 +28,12 @@ public class ExportEmailMain {
 		BeanFactory beanFactory = new ClassPathXmlApplicationContext("/com/focus3d/spring/datasource.xml");
 		EmailExportService emailExportService = beanFactory.getBean(EmailExportService.class.getName(), EmailExportService.class);
 		long st = System.currentTimeMillis();
-		List<EmailModel> list = emailExportService.list(1, 30);
+		List<EmailModel> list = emailExportService.list(1, 4000);
 		ExportEmail exportToExcel = new ExportEmail(sheetName, clomus, "F:\\", list);
 		exportToExcel.export();
-		log.info("µ¼³öÍê³É¡£");
+		log.info("å¯¼å‡ºå®Œæˆã€‚");
 		long et = System.currentTimeMillis();
-		log.info("ºÄÊ±£º" + ((et - st) / 1000) + "Ãë");
+		log.info("è€—æ—¶ï¼š" + ((et - st) / 1000) + "ç§’");
 	}
 
 }
